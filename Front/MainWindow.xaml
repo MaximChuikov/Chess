@@ -1,0 +1,121 @@
+﻿<Window x:Class="ChessWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChessWPF"
+        mc:Ignorable="d"
+        Title="Chess" Height="700" Width="800"
+        MinWidth="650"
+        MinHeight="650"
+        Background="#100710">
+
+    <Window.Resources>
+        <Style x:Name="ButtonStyle" x:Key ="button" TargetType="Control">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="ItemsControl.FontSize" Value="50"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Background" Value="Purple"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--ChessField-->
+
+        <Grid Name="ChessField"
+              Visibility="Hidden"
+              Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label Name="whoseMove"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   VerticalAlignment="Center"
+                   HorizontalContentAlignment="Center"
+                   FontSize="30"
+                   Foreground="Wheat">
+            </Label>
+
+            <Border Name="borderBoard"
+                    Width="600"
+                    Height="600"
+                    Grid.Row="1"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    BorderThickness="40"
+                    BorderBrush="#BA9B4E">
+                <Border.Background>
+                    <ImageBrush x:Name="imgBoard" Stretch="Uniform"/>
+                </Border.Background>
+
+                <Canvas Name="canvas"
+                        Grid.Row="1"
+                        HorizontalAlignment="Stretch"
+                        VerticalAlignment="Stretch"
+                        MouseLeftButtonDown="Canvas_MouseLeftButtonDown"
+                        Background="Transparent">
+                </Canvas>
+
+            </Border>
+
+            <Label Grid.Row="1"
+                   Grid.Column="1"
+                   Name="chess"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Bottom"
+                   Margin="12,0,0,0"
+                   FontSize="30"
+                   FontWeight="Bold">
+                Chess
+            </Label>
+
+            <Label MouseLeftButtonDown="ToMenu"
+                   Background="Transparent"
+                   Grid.Column="1"
+                   Grid.Row="1"
+                   HorizontalAlignment="Right"
+                   VerticalAlignment="Bottom"
+                   FontSize="30"
+                   FontWeight="Bold"
+                   Margin="0,0,12,0">
+                Menu
+            </Label>
+
+        </Grid>
+        
+        <!--Menu-->
+        
+        <StackPanel x:Name="Menu"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    VerticalAlignment="Center">
+
+            <Button Click="StartGame"
+                    Style="{StaticResource button}">
+                New Game
+            </Button>
+
+            <Button Click="Settings"
+                    Style="{StaticResource button}">
+                Settings
+            </Button>
+
+            <Button Click="Exit"
+                    Style="{StaticResource button}">
+                Exit
+            </Button>
+
+        </StackPanel>
+
+    </Grid>
+</Window>

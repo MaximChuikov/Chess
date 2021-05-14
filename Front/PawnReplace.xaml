@@ -1,0 +1,60 @@
+﻿<Window x:Class="ChessWPF.PawnReplace"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ChessWPF"
+        mc:Ignorable="d"
+        Title="PawnReplace" MaxHeight="350" MaxWidth="280"
+        MinHeight="350" MinWidth="280"
+        Background="BlueViolet">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="30"/>
+        </Style>
+    </Window.Resources>
+    <StackPanel Name="window"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Left">
+
+        <Label>Выберите фигуру</Label>
+
+        <DockPanel Name="Queen"
+                   MouseLeftButtonDown="Click">
+            <Border Height="50"
+                    Width="50">
+                <Image x:Name="img1"/>
+            </Border>
+            <Label>Queen</Label>
+        </DockPanel>
+
+        <DockPanel Name="Knight"
+                   MouseLeftButtonDown="Click">
+            <Border Height="50"
+                    Width="50">
+                <Image x:Name="img2"/>
+            </Border>
+            <Label>Knight</Label>
+        </DockPanel>
+
+        <DockPanel Name="Rook"
+                   MouseLeftButtonDown="Click">
+            <Border Height="50"
+                    Width="50">
+                <Image x:Name="img3"/>
+            </Border>
+            <Label>Rook</Label>
+        </DockPanel>
+
+        <DockPanel Name="Bishop"
+                   MouseLeftButtonDown="Click">
+            <Border Height="50"
+                    Width="50">
+                <Image x:Name="img4"/>
+            </Border>
+            <Label>Bishop</Label>
+        </DockPanel>
+
+    </StackPanel>
+</Window>
